@@ -110,6 +110,7 @@ You can remove the -subfolder to create all .txt files in the Text/ folder.
 
 
 <h2 align="left">Parser's Installation</h2>
+
 1- Copy Parser.exe in the Text folder, or Main folder of your project
 
 2- Copy extract.bat in the Main folder of your project
@@ -119,8 +120,11 @@ You can remove the -subfolder to create all .txt files in the Text/ folder.
 4- Run extract.bat 
 
 <h2 align="left">Launcher's Installation</h2>
+
 1- Rename your RPG_RT.exe in Game.exe
 
 2- Copy RPG_RT.exe in the Main folder of your project
 
-3- Run RPG_RT.exe 
+3- Add a file splashscreen.png  in the Main folder of your project ( optionnal )
+
+4- Run RPG_RT.exe 
