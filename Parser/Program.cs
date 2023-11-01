@@ -676,6 +676,8 @@ namespace Parser
                 if (!exists)
                     System.IO.Directory.CreateDirectory("Text/");
 
+                Encoding utf8WithoutBom = new UTF8Encoding(encoderShouldEmitUTF8Identifier: false);
+
                 /*
                 *  Actors
                 */
@@ -697,7 +699,7 @@ namespace Parser
                         int i = s.face_index;
                         text += n + "/" + i + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "actors_faceset.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "actors_faceset.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Actor s in actors)
@@ -705,7 +707,7 @@ namespace Parser
                         int i = s.expBasic;
                         text += i + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "actors_expBasic.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "actors_expBasic.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Actor s in actors)
@@ -713,7 +715,7 @@ namespace Parser
                         int i = s.expExtra;
                         text += i + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "actors_expExtra.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "actors_expExtra.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Actor s in actors)
@@ -721,7 +723,7 @@ namespace Parser
                         int i = s.expAcc;
                         text += i + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "actors_expAcc.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "actors_expAcc.txt", text, utf8WithoutBom);
 
 
                     text = "";
@@ -730,7 +732,7 @@ namespace Parser
                         String i = s.nickname;
                         text += i + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "actors_nickname.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "actors_nickname.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Actor s in actors)
@@ -738,7 +740,7 @@ namespace Parser
                         int i = s.class_id;
                         text += i + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "actors_classID.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "actors_classID.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Actor s in actors)
@@ -746,7 +748,7 @@ namespace Parser
                         String n = s.attributes_rate;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "actors_attribute_rate.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "actors_attribute_rate.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Actor s in actors)
@@ -754,7 +756,7 @@ namespace Parser
                         String n = s.states_rate;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "actors_states_rate.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "actors_states_rate.txt", text, utf8WithoutBom);
 
                 }
                 /*
@@ -777,7 +779,7 @@ namespace Parser
                         int sp = s.cost;
                         text += sp + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "skills_cost.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "skills_cost.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Skill s in skills)
@@ -785,7 +787,7 @@ namespace Parser
                         int n = s.sp_percent;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "skills_cost_rate.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "skills_cost_rate.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Skill s in skills)
@@ -793,7 +795,7 @@ namespace Parser
                         String n = s.desc;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "skills_desc.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "skills_desc.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Skill s in skills)
@@ -801,7 +803,7 @@ namespace Parser
                         int n = s.scope;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "skills_scope.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "skills_scope.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Skill s in skills)
@@ -809,7 +811,7 @@ namespace Parser
                         int n = s.typeSk;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "skills_type.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "skills_type.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Skill s in skills)
@@ -817,7 +819,7 @@ namespace Parser
                         int n = s.magical_rate;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "skills_magical_rate.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "skills_magical_rate.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Skill s in skills)
@@ -825,7 +827,7 @@ namespace Parser
                         int n = s.physical_rate;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "skills_physical_rate.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "skills_physical_rate.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Skill s in skills)
@@ -833,7 +835,7 @@ namespace Parser
                         String n = s.attributeEffects;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "skills_attribute_effects.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "skills_attribute_effects.txt", text, utf8WithoutBom);
 
 
                     text = "";
@@ -842,7 +844,7 @@ namespace Parser
                         int n = s.power;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "skills_power.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "skills_power.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Skill s in skills)
@@ -850,7 +852,7 @@ namespace Parser
                         int n = s.increaseHP;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "skills_increaseHP.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "skills_increaseHP.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Skill s in skills)
@@ -858,7 +860,7 @@ namespace Parser
                         int n = s.increaseMP;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "skills_increaseMP.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "skills_increaseMP.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Skill s in skills)
@@ -866,7 +868,7 @@ namespace Parser
                         int n = s.inflictStates;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "skills_inflictStates.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "skills_inflictStates.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Skill s in skills)
@@ -874,7 +876,7 @@ namespace Parser
                         String n = s.states;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "skills_states.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "skills_states.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Skill s in skills)
@@ -882,7 +884,7 @@ namespace Parser
                         int n = s.animation_id;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "skills_animation_id.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "skills_animation_id.txt", text, utf8WithoutBom);
 
                 }
                 /*
@@ -905,7 +907,7 @@ namespace Parser
                         String n = s.desc;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_description.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_description.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -913,7 +915,7 @@ namespace Parser
                         int n = s.type;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_type.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_type.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -921,7 +923,7 @@ namespace Parser
                         int n = s.hp_recover;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_hp_recover.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_hp_recover.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -929,7 +931,7 @@ namespace Parser
                         int n = s.hp_recover_rate;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_hp_recover_rate.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_hp_recover_rate.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -937,7 +939,7 @@ namespace Parser
                         int n = s.sp_recover;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_sp_recover.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_sp_recover.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -945,7 +947,7 @@ namespace Parser
                         int n = s.sp_recover_rate;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_sp_recover_rate.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_sp_recover_rate.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -953,7 +955,7 @@ namespace Parser
                         int n = s.entire_party;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_entire_party.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_entire_party.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -961,7 +963,7 @@ namespace Parser
                         int n = s.ko_only;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_ko_only.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_ko_only.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -969,7 +971,7 @@ namespace Parser
                         int n = s.cursed;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_cursed.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_cursed.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -977,7 +979,7 @@ namespace Parser
                         int n = s.switch_id;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_switch_id.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_switch_id.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -985,7 +987,7 @@ namespace Parser
                         int n = s.animation_id;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_animation_id.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_animation_id.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -993,7 +995,7 @@ namespace Parser
                         String n = s.usable_in_battle;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_usableInBattle.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_usableInBattle.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -1001,7 +1003,7 @@ namespace Parser
                         int n = s.entire_party;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_scope.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_scope.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -1009,7 +1011,7 @@ namespace Parser
                         String n = s.state_set;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_state_set.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_state_set.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -1019,7 +1021,7 @@ namespace Parser
                             n = 0;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_skill_id.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_skill_id.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -1027,7 +1029,7 @@ namespace Parser
                         String n = s.weapon_animation_id;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_weapon_animation_id.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_weapon_animation_id.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -1035,7 +1037,7 @@ namespace Parser
                         int n = s.hp_up;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_hp_up.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_hp_up.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -1043,7 +1045,7 @@ namespace Parser
                         int n = s.mp_up;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_mp_up.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_mp_up.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -1051,7 +1053,7 @@ namespace Parser
                         int n = s.atk_up;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_atk_up.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_atk_up.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -1059,7 +1061,7 @@ namespace Parser
                         int n = s.def_up;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_def_up.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_def_up.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -1067,7 +1069,7 @@ namespace Parser
                         int n = s.mag_up;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_mag_up.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_mag_up.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -1075,7 +1077,7 @@ namespace Parser
                         int n = s.agi_up;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_agi_up.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_agi_up.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -1083,7 +1085,7 @@ namespace Parser
                         int n = s.consumption_limit;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_consumption_limit.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_consumption_limit.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -1091,7 +1093,7 @@ namespace Parser
                         int n = s.price;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_price.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_price.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -1099,7 +1101,7 @@ namespace Parser
                         String n = s.attributes_rate;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_attributes_rate.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_attributes_rate.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -1107,7 +1109,7 @@ namespace Parser
                         String n = s.state_resist;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_state_resist.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_state_resist.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -1115,7 +1117,7 @@ namespace Parser
                         int n = s.eq_atk_up;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_equipment_atk.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_equipment_atk.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -1123,7 +1125,7 @@ namespace Parser
                         int n = s.eq_def_up;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_equipment_def.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_equipment_def.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -1131,7 +1133,7 @@ namespace Parser
                         int n = s.eq_mag_up;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_equipment_mag.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_equipment_mag.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -1139,7 +1141,7 @@ namespace Parser
                         int n = s.eq_agi_up;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_equipment_agi.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_equipment_agi.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -1147,7 +1149,7 @@ namespace Parser
                         String n = s.actorEquipable;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_actor_equipable.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_actor_equipable.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Item s in items)
@@ -1155,7 +1157,7 @@ namespace Parser
                         String n = s.classEquipable;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "items_class_equipable.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "items_class_equipable.txt", text, utf8WithoutBom);
                 }
                 /*
                *  States
@@ -1185,7 +1187,7 @@ namespace Parser
                             text += 0 + "\n";
                         }
                     }
-                    File.WriteAllText("Text/" + subDir + "state_restricted_physical.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "state_restricted_physical.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (State s in states)
@@ -1201,7 +1203,7 @@ namespace Parser
                             text += 0 + "\n";
                         }
                     }
-                    File.WriteAllText("Text/" + subDir + "state_restricted_magical.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "state_restricted_magical.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (State s in states)
@@ -1209,7 +1211,7 @@ namespace Parser
                         int n = s.type;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "state_type.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "state_type.txt", text, utf8WithoutBom);
 
 
                     text = "";
@@ -1218,7 +1220,7 @@ namespace Parser
                         String n = s.a_rate + " " + s.b_rate + " " + s.c_rate + " " + s.d_rate + " " + s.e_rate;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "state_rate.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "state_rate.txt", text, utf8WithoutBom);
                 }
 
                 /*
@@ -1241,7 +1243,7 @@ namespace Parser
                         String n = s.a_rate + " " + s.b_rate + " " + s.c_rate + " " + s.d_rate + " " + s.e_rate;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "attribute_rate.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "attribute_rate.txt", text, utf8WithoutBom);
                 }
 
                 /*
@@ -1264,7 +1266,7 @@ namespace Parser
                         int n = s.gold;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "enemies_gold.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "enemies_gold.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Enemy s in enemies)
@@ -1272,7 +1274,7 @@ namespace Parser
                         String n = s.states_rate;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "enemies_state_rate.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "enemies_state_rate.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Enemy s in enemies)
@@ -1280,7 +1282,7 @@ namespace Parser
                         String n = s.attributes_rate;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "enemies_attribute_rate.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "enemies_attribute_rate.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Enemy s in enemies)
@@ -1288,7 +1290,7 @@ namespace Parser
                         String n = s.battler_name;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "enemies_battler_name.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "enemies_battler_name.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Enemy s in enemies)
@@ -1296,7 +1298,7 @@ namespace Parser
                         int n = s.loot_id;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "enemies_loot_id.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "enemies_loot_id.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Enemy s in enemies)
@@ -1304,7 +1306,7 @@ namespace Parser
                         int n = s.loot_rate;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "enemies_loot_rate.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "enemies_loot_rate.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Enemy s in enemies)
@@ -1312,7 +1314,7 @@ namespace Parser
                         int n = s.animation_id;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "enemies_animation_id.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "enemies_animation_id.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Enemy s in enemies)
@@ -1320,7 +1322,7 @@ namespace Parser
                         int n = s.exp;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "enemies_exp.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "enemies_exp.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Enemy s in enemies)
@@ -1328,7 +1330,7 @@ namespace Parser
                         int n = s.maxHP;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "enemies_maxHP.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "enemies_maxHP.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Enemy s in enemies)
@@ -1336,7 +1338,7 @@ namespace Parser
                         int n = s.maxMP;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "enemies_maxMP.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "enemies_maxMP.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Enemy s in enemies)
@@ -1345,7 +1347,7 @@ namespace Parser
                         text += n + "\n";
                     }
 
-                    File.WriteAllText("Text/" + subDir + "enemies_atk.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "enemies_atk.txt", text, utf8WithoutBom);
                     text = "";
                     foreach (Enemy s in enemies)
                     {
@@ -1353,7 +1355,7 @@ namespace Parser
                         text += n + "\n";
                     }
 
-                    File.WriteAllText("Text/" + subDir + "enemies_def.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "enemies_def.txt", text, utf8WithoutBom);
                     text = "";
                     foreach (Enemy s in enemies)
                     {
@@ -1361,14 +1363,14 @@ namespace Parser
                         text += n + "\n";
                     }
 
-                    File.WriteAllText("Text/" + subDir + "enemies_mind.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "enemies_mind.txt", text, utf8WithoutBom);
                     text = "";
                     foreach (Enemy s in enemies)
                     {
                         int n = s.agi;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "enemies_agi.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "enemies_agi.txt", text, utf8WithoutBom);
                 }
                 /*
                  *  Terrains
@@ -1390,7 +1392,7 @@ namespace Parser
                         String n = s.battleback_name;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "terrains_battleback.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "terrains_battleback.txt", text, utf8WithoutBom);
                 }
                 /*
                 *  Troops
@@ -1412,7 +1414,7 @@ namespace Parser
                         String n = s.name;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "troops_name.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "troops_name.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Troop s in troops)
@@ -1420,7 +1422,7 @@ namespace Parser
                         String n = s.get_enemy_id();
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "troops_enemy_id.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "troops_enemy_id.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Troop s in troops)
@@ -1428,7 +1430,7 @@ namespace Parser
                         String n = s.get_enemy_x();
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "troops_enemy_x.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "troops_enemy_x.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Troop s in troops)
@@ -1436,7 +1438,7 @@ namespace Parser
                         String n = s.get_enemy_y();
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "troops_enemy_y.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "troops_enemy_y.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Troop s in troops)
@@ -1444,7 +1446,7 @@ namespace Parser
                         String n = s.get_enemy_invisible();
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "troops_enemy_invisible.txt", text, Encoding.Unicode);
+                    File.WriteAllText("Text/" + subDir + "troops_enemy_invisible.txt", text, utf8WithoutBom);
                 }
             }
         }
