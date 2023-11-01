@@ -125,6 +125,6 @@ You can remove the -subfolder to create all .txt files in the Text/ folder.
 
 2- Copy RPG_RT.exe in the Main folder of your project
 
-3- Add a file splashscreen.png  in the Main folder of your project ( optionnal )
+3- Add a file splashscreen.png (800/450) in the Main folder of your project ( optionnal )
 
 4- Run RPG_RT.exe 
