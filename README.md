@@ -4,6 +4,8 @@
 
 Launcher allow you to extract all data each time you run the game
 
+( extract.bat is optional if you use the Launcher )
+
 <h2 align="left">Parser</h2>
 
 
