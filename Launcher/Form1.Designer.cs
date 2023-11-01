@@ -43,7 +43,8 @@ namespace Launcher
             this.pictureBox1.Size = new System.Drawing.Size(800, 450);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            pictureBox1.Image = Image.FromFile(@"splashscreen.png");
+            if (System.IO.File.Exists("splashscreen.png"))
+                pictureBox1.Image = Image.FromFile(@"splashscreen.png");
             // 
             // Form1
             // 
