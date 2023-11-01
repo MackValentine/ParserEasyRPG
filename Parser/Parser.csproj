@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Actor.cs" />
     <Compile Include="Attribute.cs" />
+    <Compile Include="Troop.cs" />
     <Compile Include="Terrain.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="State.cs" />

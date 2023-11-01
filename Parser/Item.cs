@@ -54,6 +54,9 @@ namespace Parser
         public String attributes_rate;
         public String state_resist;
 
+        public String actorEquipable;
+        public String classEquipable;
+
         public String weapon_animation_id = "";
 
         public Item(int i)

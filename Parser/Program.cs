@@ -25,6 +25,7 @@ namespace Parser
             ArrayList enemies = new ArrayList();
             ArrayList attributes = new ArrayList();
             ArrayList terrains = new ArrayList();
+            ArrayList troops = new ArrayList();
 
             XmlDocument doc = new XmlDocument();
 
@@ -403,6 +404,16 @@ namespace Parser
                                     int n = int.Parse(no3.InnerText);
                                     e.eq_agi_up = n;
                                 }
+                                else if (no3.Name == "actor_set")
+                                {
+                                    String n = no3.InnerText;
+                                    e.actorEquipable = n;
+                                }
+                                else if (no3.Name == "class_set")
+                                {
+                                    String n = no3.InnerText;
+                                    e.classEquipable = n;
+                                }
                             }
                             items.Add(e);
                         }
@@ -595,6 +606,57 @@ namespace Parser
                                 attributes.Add(e);
                             }
                         }
+                        else if (no2.Name == "Troop")
+                        {
+                            if (no2.Attributes[0] != null)
+                            {
+                                int i = int.Parse(no2.Attributes[0].Value);
+                                Troop t = new Troop(i);
+                                foreach (XmlNode no3 in no2.ChildNodes)
+                                {
+                                    if (no3.Name == "name")
+                                    {
+                                        String n = no3.InnerText;
+                                        t.name = n;
+                                    }
+                                    else if (no3.Name == "members")
+                                    {
+                                        foreach (XmlNode no4 in no3.ChildNodes)
+                                        {
+                                            if (no4.Attributes[0] != null)
+                                            {
+                                                int i2 = int.Parse(no4.Attributes[0].Value) - 1;
+                                                foreach (XmlNode no5 in no4.ChildNodes)
+                                                {
+                                                    if (no5.Name == "enemy_id")
+                                                    {
+                                                        int n = int.Parse(no5.InnerText);
+                                                        t.enemy_id[i2] = n;
+                                                    }
+                                                    else if (no5.Name == "x")
+                                                    {
+                                                        int n = int.Parse(no5.InnerText);
+                                                        t.enemy_x[i2] = n;
+                                                    }
+                                                    else if (no5.Name == "y")
+                                                    {
+                                                        int n = int.Parse(no5.InnerText);
+                                                        t.enemy_y[i2] = n;
+                                                    }
+                                                    else if (no5.Name == "invisible")
+                                                    {
+                                                        String n = no5.InnerText;
+                                                        t.enemy_invisible[i2] = n;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                   
+                                }
+                                troops.Add(t);
+                            }
+                        }
 
                     }
                 }
@@ -604,6 +666,11 @@ namespace Parser
             String text;
             String subDir = "";
 
+            bool exists = System.IO.Directory.Exists("Text/");
+
+            if (!exists)
+                System.IO.Directory.CreateDirectory("Text/");
+
             /*
             *  Actors
             */
@@ -612,7 +679,7 @@ namespace Parser
                 if (useSubDir)
                 {
                     subDir = "actors/";
-                    bool exists = System.IO.Directory.Exists("Text/" + subDir);
+                    exists = System.IO.Directory.Exists("Text/" + subDir);
 
                     if (!exists)
                         System.IO.Directory.CreateDirectory("Text/" + subDir);
@@ -693,7 +760,7 @@ namespace Parser
                 if (useSubDir)
                 {
                     subDir = "skills/";
-                    bool exists = System.IO.Directory.Exists("Text/" + subDir);
+                    exists = System.IO.Directory.Exists("Text/" + subDir);
 
                     if (!exists)
                         System.IO.Directory.CreateDirectory("Text/" + subDir);
@@ -821,7 +888,7 @@ namespace Parser
                 if (useSubDir)
                 {
                     subDir = "items/";
-                    bool exists = System.IO.Directory.Exists("Text/" + subDir);
+                    exists = System.IO.Directory.Exists("Text/" + subDir);
 
                     if (!exists)
                         System.IO.Directory.CreateDirectory("Text/" + subDir);
@@ -1068,6 +1135,22 @@ namespace Parser
                     text += n + "\n";
                 }
                 File.WriteAllText("Text/"+ subDir+"items_equipment_agi.txt", text, Encoding.Unicode);
+
+                text = "";
+                foreach (Item s in items)
+                {
+                    String n = s.actorEquipable;
+                    text += n + "\n";
+                }
+                File.WriteAllText("Text/" + subDir + "items_actor_equipable.txt", text, Encoding.Unicode);
+
+                text = "";
+                foreach (Item s in items)
+                {
+                    String n = s.classEquipable;
+                    text += n + "\n";
+                }
+                File.WriteAllText("Text/" + subDir + "items_class_equipable.txt", text, Encoding.Unicode);
             }
             /*
            *  States
@@ -1077,7 +1160,7 @@ namespace Parser
                 if (useSubDir)
                 {
                     subDir = "states/";
-                    bool exists = System.IO.Directory.Exists("Text/" + subDir);
+                    exists = System.IO.Directory.Exists("Text/" + subDir);
 
                     if (!exists)
                         System.IO.Directory.CreateDirectory("Text/" + subDir);
@@ -1141,7 +1224,7 @@ namespace Parser
                 if (useSubDir)
                 {
                     subDir = "attributes/";
-                    bool exists = System.IO.Directory.Exists("Text/" + subDir);
+                    exists = System.IO.Directory.Exists("Text/" + subDir);
 
                     if (!exists)
                         System.IO.Directory.CreateDirectory("Text/" + subDir);
@@ -1164,7 +1247,7 @@ namespace Parser
                 if (useSubDir)
                 {
                     subDir = "enemies/";
-                    bool exists = System.IO.Directory.Exists("Text/" + subDir);
+                    exists = System.IO.Directory.Exists("Text/" + subDir);
 
                     if (!exists)
                         System.IO.Directory.CreateDirectory("Text/" + subDir);
@@ -1290,7 +1373,7 @@ namespace Parser
                 if (useSubDir)
                 {
                     subDir = "terrains/";
-                    bool exists = System.IO.Directory.Exists("Text/" + subDir);
+                    exists = System.IO.Directory.Exists("Text/" + subDir);
 
                     if (!exists)
                         System.IO.Directory.CreateDirectory("Text/" + subDir);
@@ -1303,6 +1386,60 @@ namespace Parser
                     text += n + "\n";
                 }
                 File.WriteAllText("Text/"+ subDir+"terrains_battleback.txt", text, Encoding.Unicode);
+            }
+            /*
+            *  Troops
+            */
+            {
+                subDir = "";
+                if (useSubDir)
+                {
+                    subDir = "troops/";
+                    exists = System.IO.Directory.Exists("Text/" + subDir);
+
+                    if (!exists)
+                        System.IO.Directory.CreateDirectory("Text/" + subDir);
+                }
+
+                text = "";
+                foreach (Troop s in troops)
+                {
+                    String n = s.name;
+                    text += n + "\n";
+                }
+                File.WriteAllText("Text/" + subDir + "troops_name.txt", text, Encoding.Unicode);
+
+                text = "";
+                foreach (Troop s in troops)
+                {
+                    String n = s.get_enemy_id();
+                    text += n + "\n";
+                }
+                File.WriteAllText("Text/" + subDir + "troops_enemy_id.txt", text, Encoding.Unicode);
+
+                text = "";
+                foreach (Troop s in troops)
+                {
+                    String n = s.get_enemy_x();
+                    text += n + "\n";
+                }
+                File.WriteAllText("Text/" + subDir + "troops_enemy_x.txt", text, Encoding.Unicode);
+
+                text = "";
+                foreach (Troop s in troops)
+                {
+                    String n = s.get_enemy_y();
+                    text += n + "\n";
+                }
+                File.WriteAllText("Text/" + subDir + "troops_enemy_y.txt", text, Encoding.Unicode);
+
+                text = "";
+                foreach (Troop s in troops)
+                {
+                    String n = s.get_enemy_invisible();
+                    text += n + "\n";
+                }
+                File.WriteAllText("Text/" + subDir + "troops_enemy_invisible.txt", text, Encoding.Unicode);
             }
         }
     }
