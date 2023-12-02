@@ -20,6 +20,8 @@ Launcher allow you to extract all data each time you run the game
 - faceset
 - nickname
 - state rate
+- critical hit
+- critical rate
 
 <h4 align="left">Attributes : </h4>
 - attribute rate
@@ -39,6 +41,12 @@ Launcher allow you to extract all data each time you run the game
 - max MP
 - mind
 - state rate
+- critical hit
+- critical rate
+<h6 align="left">Enemy Actions : </h6>
+For each a enemy a file named enemy_XXX_actions.txt will be created.
+It contains : condition priotity switch_id parameter1 parameter2 switchOn switchOff kind basic skill_id enemy_id
+
 
 <h4 align="left">Items : </h4>
 - actor equipable
@@ -73,6 +81,15 @@ Launcher allow you to extract all data each time you run the game
 - type
 - usable in battle
 - weapon animation id
+- attack all
+- dual attack
+- half sp cost
+- ignore evasion
+- no terrain damage
+- preemptive
+- raise evasion
+- prevent critical hit
+- two handed
 
 <h4 align="left">Skills : </h4>
 - animation id
@@ -80,8 +97,8 @@ Launcher allow you to extract all data each time you run the game
 - cost
 - cost rate
 - description
-- increase HP
-- increase MP
+- increase HP / renamed in affect HP
+- increase MP / renamed in affect MP
 - inflict state
 - magical rate
 - physical rate
@@ -89,6 +106,14 @@ Launcher allow you to extract all data each time you run the game
 - scope
 - states
 - types
+- absorb_damage
+- affect Agi
+- affect Atk
+- affect Def
+- affect Mnd
+- success Rate
+- ignore defense
+
 
 <h4 align="left">States : </h4>
 - rate
