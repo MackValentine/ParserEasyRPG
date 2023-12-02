@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,9 +31,16 @@ namespace Parser
         public int mind;
         public int agi;
 
+
+        public int criticalRate;
+        public int criticalHit;
+
+        public ArrayList actions;
+
         public Enemy(int i)
         {
             id = i;
+            actions = new ArrayList();
         }
     }
 }

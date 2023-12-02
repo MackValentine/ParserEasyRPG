@@ -20,6 +20,10 @@ namespace Parser
         public String attributes_rate;
         public String states_rate;
 
+
+        public int criticalRate;
+        public int criticalHit;
+
         public Actor(int i)
         {
             id = i;

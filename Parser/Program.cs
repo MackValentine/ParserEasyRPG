@@ -125,6 +125,88 @@ namespace Parser
                                             int n = int.Parse(no3.InnerText);
                                             e.agi = n;
                                         }
+                                        else if (no3.Name == "critical_hit_chance")
+                                        {
+                                            int n = int.Parse(no3.InnerText);
+                                            e.criticalRate = n;
+                                        }
+                                        else if (no3.Name == "critical_hit")
+                                        {
+                                            int n = 1;
+                                            if (no3.InnerText == "F")
+                                                n = 0;
+                                            e.criticalHit = n;
+                                        }
+                                        else if (no3.Name == "actions")
+                                        {
+                                            foreach (XmlNode no4 in no3.ChildNodes)
+                                            {
+                                                if (no4.Name == "EnemyAction")
+                                                {
+                                                    int action_id = int.Parse(no4.Attributes[0].Value);
+                                                    EnemyAction action = new EnemyAction(action_id);
+                                                    foreach (XmlNode no5 in no4.ChildNodes)
+                                                    {
+                                                        if (no5.Name == "condition_type")
+                                                        {
+                                                            int n = int.Parse(no5.InnerText);
+                                                            action.condition = n;
+                                                        }
+                                                        else if (no5.Name == "rating")
+                                                        {
+                                                            int n = int.Parse(no5.InnerText);
+                                                            action.priotity = n;
+                                                        }
+                                                        else if (no5.Name == "switch_id")
+                                                        {
+                                                            int n = int.Parse(no5.InnerText);
+                                                            action.switch_id = n;
+                                                        }
+                                                        else if (no5.Name == "condition_param1")
+                                                        {
+                                                            int n = int.Parse(no5.InnerText);
+                                                            action.parameter1 = n;
+                                                        }
+                                                        else if (no5.Name == "condition_param2")
+                                                        {
+                                                            int n = int.Parse(no5.InnerText);
+                                                            action.parameter2 = n;
+                                                        }
+                                                        else if (no5.Name == "switch_on_id")
+                                                        {
+                                                            int n = int.Parse(no5.InnerText);
+                                                            action.switchOn = n;
+                                                        }
+                                                        else if (no5.Name == "switch_off_id")
+                                                        {
+                                                            int n = int.Parse(no5.InnerText);
+                                                            action.switchOff = n;
+                                                        }
+                                                        else if (no5.Name == "kind")
+                                                        {
+                                                            int n = int.Parse(no5.InnerText);
+                                                            action.kind = n;
+                                                        }
+                                                        else if (no5.Name == "base")
+                                                        {
+                                                            int n = int.Parse(no5.InnerText);
+                                                            action.basic = n;
+                                                        }
+                                                        else if (no5.Name == "skill_id")
+                                                        {
+                                                            int n = int.Parse(no5.InnerText);
+                                                            action.skill_id = n;
+                                                        }
+                                                        else if (no5.Name == "enemy_id")
+                                                        {
+                                                            int n = int.Parse(no5.InnerText);
+                                                            action.enemy_id = n;
+                                                        }
+                                                    }
+                                                    e.actions.Add(action);
+                                                }
+                                            }
+                                        }
                                     }
                                     enemies.Add(e);
                                 }
@@ -200,6 +282,18 @@ namespace Parser
                                         {
                                             String n = no3.InnerText;
                                             e.attributes_rate = n;
+                                        }
+                                        else if (no3.Name == "critical_hit_chance")
+                                        {
+                                            int n = int.Parse(no3.InnerText);
+                                            e.criticalRate = n;
+                                        }
+                                        else if (no3.Name == "critical_hit")
+                                        {
+                                            int n = 1;
+                                            if (no3.InnerText == "F")
+                                                n = 0;
+                                            e.criticalHit = n;
                                         }
                                     }
                                     actors.Add(e);
@@ -419,6 +513,61 @@ namespace Parser
                                         String n = no3.InnerText;
                                         e.classEquipable = n;
                                     }
+                                    else if (no3.Name == "hit")
+                                    {
+                                        int n = int.Parse(no3.InnerText);
+                                        e.hitRate = n;
+                                    }
+                                    else if (no3.Name == "critical_hit_chance")
+                                    {
+                                        int n = int.Parse(no3.InnerText);
+                                        e.criticalRate = n;
+                                    }
+                                    else if (no3.Name == "preemptive")
+                                    {
+                                        String n = no3.InnerText;
+                                        e.preemptive = n;
+                                    }
+                                    else if (no3.Name == "dual_attack")
+                                    {
+                                        String n = no3.InnerText;
+                                        e.dual_attack = n;
+                                    }
+                                    else if (no3.Name == "attack_all")
+                                    {
+                                        String n = no3.InnerText;
+                                        e.attack_all = n;
+                                    }
+                                    else if (no3.Name == "ignore_evasion")
+                                    {
+                                        String n = no3.InnerText;
+                                        e.ignore_evasion = n;
+                                    }
+                                    else if (no3.Name == "prevent_critical")
+                                    {
+                                        String n = no3.InnerText;
+                                        e.prevent_critical = n;
+                                    }
+                                    else if (no3.Name == "raise_evasion")
+                                    {
+                                        String n = no3.InnerText;
+                                        e.raise_evasion = n;
+                                    }
+                                    else if (no3.Name == "half_sp_cost")
+                                    {
+                                        String n = no3.InnerText;
+                                        e.half_sp_cost = n;
+                                    }
+                                    else if (no3.Name == "no_terrain_damage")
+                                    {
+                                        String n = no3.InnerText;
+                                        e.no_terrain_damage = n;
+                                    }
+                                    else if (no3.Name == "two_handed")
+                                    {
+                                        String n = no3.InnerText;
+                                        e.two_handed = n;
+                                    }
                                 }
                                 items.Add(e);
                             }
@@ -480,14 +629,42 @@ namespace Parser
                                             int n = 1;
                                             if (no3.InnerText == "F")
                                                 n = 0;
-                                            e.increaseHP = n;
+                                            e.affectHP = n;
                                         }
                                         else if (no3.Name == "affect_sp")
                                         {
                                             int n = 1;
                                             if (no3.InnerText == "F")
                                                 n = 0;
-                                            e.increaseMP = n;
+                                            e.affectMP = n;
+                                        }
+                                        else if (no3.Name == "affect_attack")
+                                        {
+                                            int n = 1;
+                                            if (no3.InnerText == "F")
+                                                n = 0;
+                                            e.affectAtk = n;
+                                        }
+                                        else if (no3.Name == "affect_defense")
+                                        {
+                                            int n = 1;
+                                            if (no3.InnerText == "F")
+                                                n = 0;
+                                            e.affectDef = n;
+                                        }
+                                        else if (no3.Name == "affect_spirit")
+                                        {
+                                            int n = 1;
+                                            if (no3.InnerText == "F")
+                                                n = 0;
+                                            e.affectMag = n;
+                                        }
+                                        else if (no3.Name == "affect_agility")
+                                        {
+                                            int n = 1;
+                                            if (no3.InnerText == "F")
+                                                n = 0;
+                                            e.affectAgi = n;
                                         }
                                         else if (no3.Name == "state_effects")
                                         {
@@ -505,6 +682,30 @@ namespace Parser
                                         {
                                             int n = int.Parse(no3.InnerText);
                                             e.animation_id = n;
+                                        }
+                                        else if (no3.Name == "variance")
+                                        {
+                                            int n = int.Parse(no3.InnerText);
+                                            e.variance = n;
+                                        }
+                                        else if (no3.Name == "hit")
+                                        {
+                                            int n = int.Parse(no3.InnerText);
+                                            e.successRate = n;
+                                        }
+                                        else if (no3.Name == "absorb_damage")
+                                        {
+                                            int n = 1;
+                                            if (no3.InnerText == "F")
+                                                n = 0;
+                                            e.absorb_damage = n;
+                                        }
+                                        else if (no3.Name == "ignore_defense")
+                                        {
+                                            int n = 1;
+                                            if (no3.InnerText == "F")
+                                                n = 0;
+                                            e.ignore_defense = n;
                                         }
 
                                     }
@@ -758,6 +959,22 @@ namespace Parser
                     }
                     File.WriteAllText("Text/" + subDir + "actors_states_rate.txt", text, utf8WithoutBom);
 
+                    text = "";
+                    foreach (Actor s in actors)
+                    {
+                        int i = s.criticalHit;
+                        text += i + "\n";
+                    }
+                    File.WriteAllText("Text/" + subDir + "actors_criticalHit.txt", text, utf8WithoutBom);
+
+                    text = "";
+                    foreach (Actor s in actors)
+                    {
+                        int i = s.criticalRate;
+                        text += i + "\n";
+                    }
+                    File.WriteAllText("Text/" + subDir + "actors_criticalRate.txt", text, utf8WithoutBom);
+
                 }
                 /*
                  *  Skills
@@ -849,18 +1066,50 @@ namespace Parser
                     text = "";
                     foreach (Skill s in skills)
                     {
-                        int n = s.increaseHP;
+                        int n = s.affectHP;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "skills_increaseHP.txt", text, utf8WithoutBom);
+                    File.WriteAllText("Text/" + subDir + "skills_affectHP.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Skill s in skills)
                     {
-                        int n = s.increaseMP;
+                        int n = s.affectMP;
                         text += n + "\n";
                     }
-                    File.WriteAllText("Text/" + subDir + "skills_increaseMP.txt", text, utf8WithoutBom);
+                    File.WriteAllText("Text/" + subDir + "skills_affectMP.txt", text, utf8WithoutBom);
+
+                    text = "";
+                    foreach (Skill s in skills)
+                    {
+                        int n = s.affectAtk;
+                        text += n + "\n";
+                    }
+                    File.WriteAllText("Text/" + subDir + "skills_affectAtk.txt", text, utf8WithoutBom);
+
+                    text = "";
+                    foreach (Skill s in skills)
+                    {
+                        int n = s.affectDef;
+                        text += n + "\n";
+                    }
+                    File.WriteAllText("Text/" + subDir + "skills_affectDef.txt", text, utf8WithoutBom);
+
+                    text = "";
+                    foreach (Skill s in skills)
+                    {
+                        int n = s.affectMag;
+                        text += n + "\n";
+                    }
+                    File.WriteAllText("Text/" + subDir + "skills_affectMnd.txt", text, utf8WithoutBom);
+
+                    text = "";
+                    foreach (Skill s in skills)
+                    {
+                        int n = s.affectAgi;
+                        text += n + "\n";
+                    }
+                    File.WriteAllText("Text/" + subDir + "skills_affectAgi.txt", text, utf8WithoutBom);
 
                     text = "";
                     foreach (Skill s in skills)
@@ -885,6 +1134,30 @@ namespace Parser
                         text += n + "\n";
                     }
                     File.WriteAllText("Text/" + subDir + "skills_animation_id.txt", text, utf8WithoutBom);
+
+                    text = "";
+                    foreach (Skill s in skills)
+                    {
+                        int n = s.absorb_damage;
+                        text += n + "\n";
+                    }
+                    File.WriteAllText("Text/" + subDir + "skills_absorb_damage.txt", text, utf8WithoutBom);
+
+                    text = "";
+                    foreach (Skill s in skills)
+                    {
+                        int n = s.ignore_defense;
+                        text += n + "\n";
+                    }
+                    File.WriteAllText("Text/" + subDir + "skills_ignore_defense.txt", text, utf8WithoutBom);
+
+                    text = "";
+                    foreach (Skill s in skills)
+                    {
+                        int n = s.successRate;
+                        text += n + "\n";
+                    }
+                    File.WriteAllText("Text/" + subDir + "skills_successRate.txt", text, utf8WithoutBom);
 
                 }
                 /*
@@ -1158,6 +1431,78 @@ namespace Parser
                         text += n + "\n";
                     }
                     File.WriteAllText("Text/" + subDir + "items_class_equipable.txt", text, utf8WithoutBom);
+
+                    text = "";
+                    foreach (Item s in items)
+                    {
+                        String n = s.preemptive;
+                        text += n + "\n";
+                    }
+                    File.WriteAllText("Text/" + subDir + "items_preemptive.txt", text, utf8WithoutBom);
+
+                    text = "";
+                    foreach (Item s in items)
+                    {
+                        String n = s.two_handed;
+                        text += n + "\n";
+                    }
+                    File.WriteAllText("Text/" + subDir + "items_two_handed.txt", text, utf8WithoutBom);
+
+                    text = "";
+                    foreach (Item s in items)
+                    {
+                        String n = s.no_terrain_damage;
+                        text += n + "\n";
+                    }
+                    File.WriteAllText("Text/" + subDir + "items_no_terrain_damage.txt", text, utf8WithoutBom);
+
+                    text = "";
+                    foreach (Item s in items)
+                    {
+                        String n = s.half_sp_cost;
+                        text += n + "\n";
+                    }
+                    File.WriteAllText("Text/" + subDir + "items_half_sp_cost.txt", text, utf8WithoutBom);
+
+                    text = "";
+                    foreach (Item s in items)
+                    {
+                        String n = s.raise_evasion;
+                        text += n + "\n";
+                    }
+                    File.WriteAllText("Text/" + subDir + "items_raise_evasion.txt", text, utf8WithoutBom);
+
+                    text = "";
+                    foreach (Item s in items)
+                    {
+                        String n = s.prevent_critical;
+                        text += n + "\n";
+                    }
+                    File.WriteAllText("Text/" + subDir + "items_prevent_critical.txt", text, utf8WithoutBom);
+
+                    text = "";
+                    foreach (Item s in items)
+                    {
+                        String n = s.ignore_evasion;
+                        text += n + "\n";
+                    }
+                    File.WriteAllText("Text/" + subDir + "items_ignore_evasion.txt", text, utf8WithoutBom);
+
+                    text = "";
+                    foreach (Item s in items)
+                    {
+                        String n = s.attack_all;
+                        text += n + "\n";
+                    }
+                    File.WriteAllText("Text/" + subDir + "items_attack_all.txt", text, utf8WithoutBom);
+
+                    text = "";
+                    foreach (Item s in items)
+                    {
+                        String n = s.dual_attack;
+                        text += n + "\n";
+                    }
+                    File.WriteAllText("Text/" + subDir + "items_dual_attack.txt", text, utf8WithoutBom);
                 }
                 /*
                *  States
@@ -1371,6 +1716,43 @@ namespace Parser
                         text += n + "\n";
                     }
                     File.WriteAllText("Text/" + subDir + "enemies_agi.txt", text, utf8WithoutBom);
+
+                    text = "";
+                    foreach (Enemy s in enemies)
+                    {
+                        int i = s.criticalHit;
+                        text += i + "\n";
+                    }
+                    File.WriteAllText("Text/" + subDir + "enemies_criticalHit.txt", text, utf8WithoutBom);
+
+                    text = "";
+                    foreach (Enemy s in enemies)
+                    {
+                        int i = s.criticalRate;
+                        text += i + "\n";
+                    }
+                    File.WriteAllText("Text/" + subDir + "enemies_criticalRate.txt", text, utf8WithoutBom);
+
+
+                    subDir = "";
+                    if (useSubDir)
+                    {
+                        subDir = "enemies/enemy_actions/";
+                        exists = System.IO.Directory.Exists("Text/" + subDir);
+
+                        if (!exists)
+                            System.IO.Directory.CreateDirectory("Text/" + subDir);
+                    }
+
+                    foreach (Enemy s in enemies)
+                    {
+                        text = "";
+                        foreach (EnemyAction a in s.actions)
+                        {
+                            text += a.condition + " " + a.priotity + " " + a.switch_id + " " + a.parameter1 + " " + a.parameter2 + " " + a.switchOn + " " + a.switchOff + " " + a.kind + " " + a.basic + " " + a.skill_id + " " + a.enemy_id + "\n";
+                        }
+                        File.WriteAllText("Text/" + subDir + "enemy_" + s.id + "_actions.txt", text, utf8WithoutBom);
+                    }
                 }
                 /*
                  *  Terrains
@@ -1449,6 +1831,8 @@ namespace Parser
                     File.WriteAllText("Text/" + subDir + "troops_enemy_invisible.txt", text, utf8WithoutBom);
                 }
             }
+
+            // Console.Read();
         }
     }
 }

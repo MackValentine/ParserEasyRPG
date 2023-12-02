@@ -15,23 +15,28 @@ namespace Parser
 
         public int scope = 0;
 
-        public int magical_rate;
-
-        public int physical_rate;
-
         public String attributeEffects;
 
         public String states;
 
-        public int increaseHP;
-
-        public int increaseMP;
+        public int affectHP;
+        public int affectMP;
+        public int affectAtk;
+        public int affectDef;
+        public int affectMag;
+        public int affectAgi;
 
         public int power;
+        public int variance;
+        public int magical_rate;
+        public int physical_rate;
+        public int successRate;
 
         public int inflictStates;
 
         public int animation_id;
+        public int absorb_damage;
+        public int ignore_defense;
 
         public Skill(int i)
         {

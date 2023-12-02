@@ -59,6 +59,20 @@ namespace Parser
 
         public String weapon_animation_id = "";
 
+        public int criticalRate;
+        public int hitRate;
+
+
+        public string preemptive;
+        public string two_handed;
+        public string no_terrain_damage;
+        public string half_sp_cost;
+        public string raise_evasion;
+        public string prevent_critical;
+        public string ignore_evasion;
+        public string attack_all;
+        public string dual_attack;
+
         public Item(int i)
         {
             id = i;
