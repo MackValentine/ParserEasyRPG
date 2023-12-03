@@ -187,7 +187,7 @@ namespace Parser
                                                             int n = int.Parse(no5.InnerText);
                                                             action.kind = n;
                                                         }
-                                                        else if (no5.Name == "base")
+                                                        else if (no5.Name == "basic")
                                                         {
                                                             int n = int.Parse(no5.InnerText);
                                                             action.basic = n;
