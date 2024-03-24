@@ -518,7 +518,7 @@ namespace Parser
                                         int n = int.Parse(no3.InnerText);
                                         e.hitRate = n;
                                     }
-                                    else if (no3.Name == "critical_hit_chance")
+                                    else if (no3.Name == "critical_hit")
                                     {
                                         int n = int.Parse(no3.InnerText);
                                         e.criticalRate = n;
@@ -1503,6 +1503,23 @@ namespace Parser
                         text += n + "\n";
                     }
                     File.WriteAllText("Text/" + subDir + "items_dual_attack.txt", text, utf8WithoutBom);
+
+                    text = "";
+                    foreach (Item s in items)
+                    {
+                        int n = s.hitRate;
+                        text += n + "\n";
+                    }
+                    File.WriteAllText("Text/" + subDir + "items_hit_rate.txt", text, utf8WithoutBom);
+
+                    text = "";
+                    foreach (Item s in items)
+                    {
+                        int n = s.criticalRate;
+                        text += n + "\n";
+                    }
+                    File.WriteAllText("Text/" + subDir + "items_critical_rate.txt", text, utf8WithoutBom);
+
                 }
                 /*
                *  States
