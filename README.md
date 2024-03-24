@@ -90,6 +90,8 @@ It contains : condition priotity switch_id parameter1 parameter2 switchOn switch
 - raise evasion
 - prevent critical hit
 - two handed
+- critical rate
+- hit rate
 
 <h4 align="left">Skills : </h4>
 - animation id
