@@ -38,6 +38,8 @@ namespace Parser
         public int absorb_damage;
         public int ignore_defense;
 
+        public int switch_id;
+
         public Skill(int i)
         {
             id = i;

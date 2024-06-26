@@ -707,6 +707,11 @@ namespace Parser
                                                 n = 0;
                                             e.ignore_defense = n;
                                         }
+                                        else if (no3.Name == "switch_id")
+                                        {
+                                            int n = int.Parse(no3.InnerText);
+                                            e.switch_id = n;
+                                        }
 
                                     }
                                     skills.Add(e);
@@ -1158,6 +1163,14 @@ namespace Parser
                         text += n + "\n";
                     }
                     File.WriteAllText("Text/" + subDir + "skills_successRate.txt", text, utf8WithoutBom);
+
+                    text = "";
+                    foreach (Skill s in skills)
+                    {
+                        int n = s.switch_id;
+                        text += n + "\n";
+                    }
+                    File.WriteAllText("Text/" + subDir + "skills_switchID.txt", text, utf8WithoutBom);
 
                 }
                 /*
